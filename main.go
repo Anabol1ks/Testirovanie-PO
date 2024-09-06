@@ -14,7 +14,7 @@ var db *sqlx.DB
 
 func main() {
 	var err error
-	db, err = sqlx.Open("postgres", "host=localhost port=5433 user=postgres password=12341 dbname=auth sslmode=disable")
+	db, err = sqlx.Open("postgres", "host=localhost port=5432 user=postgres password=qwerty dbname=auth sslmode=disable")
 	if err != nil {
 		log.Fatalf("Failed to open database: %v", err)
 	}
