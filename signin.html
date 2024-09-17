@@ -26,37 +26,52 @@
         </div>
     </div>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.getElementById('signin-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Предотвращает стандартное поведение отправки формы
+        event.preventDefault(); // Предотвращает стандартное поведение отправки формы
 
-            // Получаем значения из полей ввода
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        // Получаем значения из полей ввода
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
 
-            // Формируем JSON объект
-            const data = { email, password };
+        // Формируем JSON объект
+        const data = { email, password };
 
-            // Отправляем запрос на сервер
-            fetch('/sign-in', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                // Перенаправляем пользователя на страницу welcome при успешной авторизации
-                if (data.token) {
-                    window.location.href = './welcome';
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
+        // Отправляем запрос на сервер
+        fetch('/sign-in', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // Перенаправляем пользователя на страницу welcome при успешной авторизации
+            if (data.token) {
+                window.location.href = './welcome';
+            } else {
+                // Если авторизация неуспешна, отображаем уведомление с ошибкой
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ошибка',
+                    text: data.error,
+                });
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            // Уведомление с использованием SweetAlert2 при ошибке запроса
+            Swal.fire({
+                icon: "error",
+                title: "Упс...",
+                text: "Произошла ошибка при отправке данных!",
+                footer: '<a href="#">Почему это произошло?</a>'
             });
         });
+    });
     </script>
 </body>
 </html>

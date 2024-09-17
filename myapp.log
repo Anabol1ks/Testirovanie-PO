@@ -21,3 +21,17 @@ nohup: ignoring input
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8888
+[GIN] 2024/09/17 - 18:14:57 | 200 |      418.44µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:15:10 | 409 |    3.691001ms |    94.29.26.167 | POST     "/sign-up"
+[GIN] 2024/09/17 - 18:15:20 | 200 |     459.697µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:15:21 | 200 |     553.463µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:15:21 | 200 |     444.003µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:15:21 | 200 |     376.781µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:15:21 | 200 |     367.793µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:15:21 | 200 |     397.122µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:15:21 | 200 |     461.876µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:15:22 | 200 |     490.469µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:15:22 | 200 |     354.589µs |    94.29.26.167 | GET      "/signup"
+[GIN] 2024/09/17 - 18:16:02 | 200 |   92.057467ms |    94.29.26.167 | POST     "/sign-up"
+[GIN] 2024/09/17 - 18:16:02 | 200 |      872.67µs |    94.29.26.167 | GET      "/signin"
+[GIN] 2024/09/17 - 18:16:10 | 401 |   80.261398ms |    94.29.26.167 | POST     "/sign-in"

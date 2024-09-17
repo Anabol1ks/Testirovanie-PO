@@ -13,6 +13,14 @@ func SignUp(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Хз что за ошибка"})
 		return
 	}
+
+	var existingUser User
+	err := db.Get(&existingUser, "SELECT email FROM users WHERE email=$1", newUser.Email)
+	if err == nil && existingUser.Email != "" {
+		c.JSON(http.StatusConflict, gin.H{"error": "Пользователь с таким email уже зарегистрирован"})
+		return
+	}
+
 	hashPas, err := bcrypt.GenerateFromPassword([]byte(newUser.Password), bcrypt.DefaultCost)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Не удалось хешировать"})

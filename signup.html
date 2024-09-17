@@ -26,6 +26,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
         document.getElementById('signup-form').addEventListener('submit', function(event) {
@@ -52,7 +53,19 @@
                 console.log('Success:', data);
                 // Перенаправляем пользователя на страницу входа при успешной регистрации
                 if (data.message) {
-                    window.location.href = '/signin';
+                    Swal.fire({
+                    title: data.message,
+                    icon: "success",
+                    footer: '<a href="/signin">Перейти на вход</a>',
+                    showConfirmButton: false
+                    });
+                    // window.location.href = '/signin';
+                }else{
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Ошибка',
+                    text: data.error,
+                    });
                 }
             })
             .catch((error) => {
