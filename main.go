@@ -48,5 +48,5 @@ func main() {
 	router.POST("/sign-up", signinup.SignUp)
 	router.POST("/sign-in", signinup.SignIn)
 
-	router.Run(":8888")
+	router.Run("0.0.0.0:8888")
 }
