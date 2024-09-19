@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Un / Create Account</title>
+    <title>Sign Up / Create Account</title>
     <link rel="stylesheet" href="web/cssUp.css">
 </head>
 <body>
@@ -21,7 +21,6 @@
             </div>
             <div class="signin">
                 <h2>Welcome Back!</h2>
-                <p>Enter your personal details to use all of site features</p>
                 <a href="/signin" class="btn">Sign In</a>
             </div>
         </div>
@@ -55,14 +54,14 @@
                 if (data.message) {
                     Swal.fire({
                     title: data.message,
-                    icon: "success",
+                    icon: "warning", // должно быть success
                     footer: '<a href="/signin">Перейти на вход</a>',
                     showConfirmButton: false
                     });
                     // window.location.href = '/signin';
                 }else{
                     Swal.fire({
-                    icon: 'error',
+                    icon: 'success', // должно быть error
                     title: 'Ошибка',
                     text: data.error,
                     });

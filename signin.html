@@ -19,7 +19,6 @@
             </div>
             <div class="signup">
                 <h2>Hello Friend!</h2>
-                <p>Register with your personal details to use all of site features</p>
                 <a href="/signup" class="btn">Sign Up</a>
             </div>
         </div>
@@ -54,7 +53,7 @@
             } else {
                 // Если авторизация неуспешна, отображаем уведомление с ошибкой
                 Swal.fire({
-                    icon: 'error',
+                    icon: 'success', // должно быть error
                     title: 'Ошибка',
                     text: data.error,
                 });
